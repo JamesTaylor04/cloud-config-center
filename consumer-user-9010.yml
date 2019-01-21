@@ -1,0 +1,16 @@
+server:
+  port: 9010
+
+spring:  application:    name: consumer-user
+
+# eureka服务消费者配置
+eureka:
+  client:
+    # register-with-eureka: false                    # 不会将自己的信息注册到eureka中
+    service-url:
+      defaultZone: http://localhost:7000/eureka    # 链接注册中心集群
+  instance:
+    instance-id: consumer-user-9010                # 定义微服务的名称
+    prefer-ip-address: true                        # 是否显示IP和端口
+
+feign:  hystrix:    enabled: true   # 开启客户端的熔断配置
